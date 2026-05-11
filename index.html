@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Environment | Carbon and Consequence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Georama:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --natgeo-yellow: #FFCC00;
+      --deep-black: #111111;
+      --pure-white: #ffffff;
+      --off-white: #f9f9f9;
+      --text-gray: #333333;
+      --border-light: #eeeeee;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--off-white);
+      color: var(--deep-black);
+      font-family: 'Georama', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* HERO SECTION - High Contrast Black/Yellow */
+    .hero {
+      position: relative;
+      height: 70vh;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%),
+                  url('https://images.unsplash.com/photo-1509063919212-1830a1496ad0?q=80&w=2000&auto=format&fit=crop'); 
+      background-size: cover;
+      background-position: center;
+      padding: 60px;
+      color: white;
+      border-bottom: 10px solid var(--natgeo-yellow);
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .label-badge {
+      display: inline-block;
+      background: var(--natgeo-yellow);
+      color: #000;
+      padding: 5px 15px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    h1 em { color: var(--natgeo-yellow); font-style: normal; }
+
+    .hero-deck {
+      font-size: 1.4rem;
+      max-width: 800px;
+      color: #ccc;
+      font-weight: 300;
+    }
+
+    /* CONTAINER & GRID */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .natgeo-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 40px;
+    }
+
+    /* READABLE TEXT CARDS */
+    .promo-card {
+      background: var(--pure-white);
+      border: 1px solid var(--border-light);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .tile-main { grid-column: span 8; }
+    .tile-side { grid-column: span 4; display: flex; flex-direction: column; gap: 30px; }
+    .card-body { padding: 40px; }
+
+    .kicker {
+      color: var(--deep-black);
+      border-bottom: 3px solid var(--natgeo-yellow);
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    h2, h3 { font-family: 'Playfair Display', serif; margin-bottom: 15px; color: #000; }
+    .tile-main h2 { font-size: 2.5rem; }
+    p { color: var(--text-gray); font-size: 1.15rem; margin-bottom: 1.5em; }
+
+    /* STATS STRIP - Industrial Yellow */
+    .stats-module {
+      grid-column: span 12;
+      background: var(--natgeo-yellow);
+      color: #000;
+      display: flex;
+      justify-content: space-around;
+      padding: 50px;
+      margin: 20px 0;
+      box-shadow: inset 0 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .stat-item { text-align: center; }
+    .stat-num { display: block; font-size: 3.5rem; font-weight: 800; line-height: 1; }
+    .stat-label { text-transform: uppercase; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; }
+
+    /* VISUALS */
+    .visual-module { grid-column: span 12; margin: 40px 0; }
+    .visual-header { border-left: 6px solid var(--natgeo-yellow); padding-left: 25px; margin-bottom: 30px; }
+    
+    .img-wrapper { 
+      width: 100%; 
+      background: #fff; 
+      border: 1px solid var(--border-light);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    iframe { width: 100%; border: none; display: block; }
+
+    /* QUOTE */
+    .pullquote-module {
+      grid-column: span 12;
+      padding: 80px 0;
+      text-align: center;
+      background: var(--deep-black);
+      color: var(--natgeo-yellow);
+      margin: 40px 0;
+    }
+
+    .pullquote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      max-width: 900px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    /* GRID SPLIT */
+    .grid-split {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .btn-natgeo {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 18px 45px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 2px;
+      margin-top: 30px;
+      transition: 0.3s ease;
+      border: 2px solid #000;
+    }
+
+    .btn-natgeo:hover { background: var(--natgeo-yellow); color: #000; border-color: var(--natgeo-yellow); }
+
+    footer {
+      background: var(--deep-black);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      border-top: 5px solid var(--natgeo-yellow);
+    }
+
+    .footer-names { font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    .footer-sub { color: #888; font-size: 0.9rem; }
+
+    @media (max-width: 900px) {
+      .tile-main, .tile-side { grid-column: span 12; }
+      .grid-split { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-content">
+      <span class="label-badge">Environmental Analysis</span>
+      <h1>Carbon and <em>Consequence</em></h1>
+      <p class="hero-deck">Thirty years of CO₂ data, 254 countries, and one uncomfortable trajectory. Who is responsible, what drives emissions, and where are we headed?</p>
+      <p style="margin-top: 25px; font-size: 0.85rem; color: #aaa; letter-spacing: 1px;">BY KETAN NANDKUMAR PATIL (S252607) & AKASH NEIL DAS (S252577)</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="natgeo-grid">
+      
+      <article class="tile-main promo-card">
+        <div class="card-body">
+          <span class="kicker">The Global problem</span>
+          <h2>The world has a carbon problem</h2>
+          <p>Since 1990, global CO₂ emissions have grown by 65%. That single number gets cited endlessly in climate reports and news headlines, but it rarely tells you much on its own. It does not tell you which countries drove that growth. It does not tell you whether wealth and emissions always go together, or whether some rich countries have managed to decouple the two. And it does not tell you where we are headed if current trends continue.</p>
+          <p>This project uses three decades of country-level data to look at those questions directly. The dataset comes from Our World in Data, sourced from NASA and the Global Carbon Project. It covers every country on earth from 1990 to 2024, with variables ranging from CO₂ by fuel source to GDP, population, and temperature change.</p>
+        </div>
+      </article>
+
+      <aside class="tile-side">
+        <div class="promo-card" style="padding: 25px; border-left: 5px solid #000;">
+          <span class="kicker">About the Data</span>
+          <p style="font-size: 0.95rem; margin-bottom: 0;">All data comes from the Our World in Data CO₂ dataset, which aggregates figures from the Global Carbon Project, NASA GISS, and the International Energy Agency. We filter to 1990 onwards where coverage is most complete.</p>
+        </div>
+        <div class="promo-card" style="background: #000; color: var(--natgeo-yellow); padding: 25px;">
+          <h3 style="font-size: 1.1rem; color: var(--natgeo-yellow); margin-bottom: 10px;">30 Years of Insight</h3>
+          <p style="font-size: 0.95rem; color: #eee; margin: 0;">Analyzing trends across 254 countries and 79 unique variables to map the future of our atmosphere.</p>
+        </div>
+      </aside>
+
+      <section class="stats-module">
+        <div class="stat-item"><span class="stat-num">50,411</span><span class="stat-label">Total Rows</span></div>
+        <div class="stat-item"><span class="stat-num">79</span><span class="stat-label">Variables</span></div>
+        <div class="stat-item"><span class="stat-num">254</span><span class="stat-label">Countries</span></div>
+        <div class="stat-item"><span class="stat-num">+65%</span><span class="stat-label">CO₂ growth since 1990</span></div>
+      </section>
+
+      <section class="visual-module">
+        <div class="visual-header">
+            <span class="kicker">Geographic Intensity</span>
+            <h2>Not every country tells the same story</h2>
+            <p>The map below shows CO₂ emissions per capita for every country across eight snapshot years from 1990 to 2022. Use the play button to animate through time, or drag the slider to any year. Darker tones indicate higher emissions per person.</p>
+        </div>
+        <div class="img-wrapper">
+          <iframe src="assets/fig1_map.html" height="550"></iframe>
+        </div>
+        <div style="padding-top: 25px;">
+            <p>A few things stand out immediately. The Gulf states and Australia have consistently sat at the very top of the per capita range, often emitting ten to twenty times more per person than countries in sub-Saharan Africa. China's overall emissions have surged dramatically, but its per capita figure remains well below the United States. Europe has largely held steady or declined in per capita terms, while South and Southeast Asia have grown.</p>
+        </div>
+      </section>
+
+      <section class="visual-module">
+        <div class="grid-split">
+            <div>
+                <span class="kicker">Trajectory</span>
+                <h2>China rose. Europe held. The US declined slowly.</h2>
+                <p>Looking at total emissions rather than per capita tells a different story. The chart tracks the ten largest emitting countries from 1990 to 2022. China's trajectory is the most dramatic feature: it more than quadrupled its emissions over this period, going from ~2,500 million tonnes in 1990 to nearly 12,000 by 2022. It now accounts for around 31% of global emissions on its own.</p>
+            </div>
+            <div class="img-wrapper">
+                <iframe src="assets/fig2_lines.html" height="400"></iframe>
+            </div>
+        </div>
+        <div style="padding-top: 30px;">
+            <p>The United States peaked around 2005 and has since declined, largely through a shift from coal to natural gas and growing renewable energy capacity. European countries show a similar downward trend. India is the story to watch in the coming decades: it has overtaken Russia and Japan and is growing rapidly, though its per capita figure remains low relative to the historical emitters.</p>
+        </div>
+      </section>
+
+      <section class="pullquote-module">
+        <blockquote class="pullquote-text">
+          "China now accounts for roughly 31% of global CO₂ emissions. The United States emits less than half as much in total."
+        </blockquote>
+      </section>
+
+      <section class="visual-module">
+        <div class="visual-header">
+            <span class="kicker">Wealth vs Footprint</span>
+            <h2>Does wealth cause emissions? Not always.</h2>
+            <p>One of the most debated questions in climate economics is whether economic development necessarily means higher emissions. The scatter plot below plots GDP per capita against CO₂ per capita for 164 countries in 2022. Each bubble is a country, sized by population, and coloured by its dominant fuel source.</p>
+        </div>
+        <div class="img-wrapper">
+          <iframe src="assets/fig3_scatter.html" height="550"></iframe>
+        </div>
+        <div style="padding-top: 25px;">
+            <p>The broad trend is clear: richer countries tend to emit more. But the scatter is wide enough to be interesting. France and Germany have similar GDPs per capita but France emits significantly less, largely because of nuclear energy. Qatar and Kuwait sit at extraordinary emission levels relative to their wealth. Meanwhile countries like Brazil and Indonesia are large economies with relatively low emissions per capita, partly because of hydropower and lower industrial intensity.</p>
+        </div>
+      </section>
+
+      <article class="tile-main promo-card" style="grid-column: span 12;">
+        <div class="card-body">
+          <span class="kicker">Predictive Modeling</span>
+          <h2>Where are we headed by 2030?</h2>
+          <p>We fitted a linear regression model to global CO₂ emissions from 1990 to 2022. The model fits the historical data well, with an <strong>R² of 0.962</strong>, meaning about 96% of the year-to-year variation in global emissions is explained by a simple linear trend.</p>
+          
+          <div style="background: #f4f4f4; padding: 25px; border-left: 5px solid var(--natgeo-yellow); margin: 30px 0;">
+              <p style="font-weight: 700; color: #000; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 10px;">About the Model</p>
+              <p style="font-size: 1rem; margin-bottom: 0; color: #444;">We used ordinary least squares linear regression with year as the single predictor and global CO₂ emissions as the target. The model was trained on 1990 to 2022 data (33 observations). R² on the training data is 0.962. The shaded band represents a 95% confidence interval based on the residual standard deviation.</p>
+          </div>
+
+          <p>The projection is sobering. If the trend that held from 1990 to 2022 continues, global CO₂ emissions will reach approximately 42,709 million tonnes by 2030. That is around 14% higher than the 2022 figure of 37,528 million tonnes. The Paris Agreement target of limiting warming to 1.5°C requires global emissions to fall to roughly 25,000 million tonnes by 2030. The linear trend runs in the opposite direction entirely.</p>
+        </div>
+        <div class="img-wrapper" style="border: none; border-top: 1px solid var(--border-light);">
+          <iframe src="assets/fig4_prediction.html" height="500"></iframe>
+        </div>
+      </article>
+
+      <section class="visual-module" style="text-align: center; padding: 80px 0 40px;">
+          <span class="kicker">Conclusion</span>
+          <h2 style="font-size: 3rem;">What the data tells us</h2>
+          <p style="max-width: 850px; margin: 0 auto 30px;">The four charts above trace a clear arc: emissions have grown dramatically since 1990, driven overwhelmingly by a small number of large economies. The growth is not inevitable or uniform. Countries with similar levels of wealth show very different emission profiles depending on their energy choices. And the linear trend, if it holds, puts us on a path well above any scenario consistent with the Paris Agreement targets.</p>
+          <p style="max-width: 850px; margin: 0 auto 40px;">But data has limits. Solar and wind capacity has grown faster than forecasts predicted, and EV adoption is accelerating. Equally, the data records what countries report. Emissions accounting is complex and sometimes contested; the figures here represent the best available estimates, not perfect measurements.</p>
+          <a href="notebook.html" class="btn-natgeo">View Explainer Notebook</a>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-names">Ketan Nandkumar Patil & Akash Neil Das</div>
+    <div class="footer-sub">02806 Social Data Analysis and Visualization &nbsp;·&nbsp; DTU 2026</div>
+  </footer>
+
+</body>
+</html>
